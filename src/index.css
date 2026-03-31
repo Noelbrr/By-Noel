@@ -1,0 +1,35 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --color-secondary: #86868b;
+}
+
+@layer base {
+  body {
+    @apply bg-black text-white antialiased selection:bg-white selection:text-black;
+    font-family: var(--font-sans);
+  }
+
+  html.has-scroll-smooth {
+    overflow: hidden;
+  }
+
+  html.has-scroll-dragging {
+    user-select: none;
+  }
+
+  .has-scroll-smooth body {
+    overflow: hidden;
+  }
+
+  .has-scroll-smooth [data-scroll-container] {
+    min-height: 100vh;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
