@@ -75,20 +75,22 @@ export default function App() {
       });
 
       gsap.utils.toArray(".reveal-text").forEach((text: any) => {
+        const target = text.firstElementChild; // Das animiert den Text selbst, nicht den äußeren Container
+        
         const tl = gsap.timeline({
           scrollTrigger: {
-            trigger: text,
+            trigger: text, // Der äußere Container bleibt starr und dient nur als Trigger
             start: "top 80%",
             end: "bottom 20%",
-            scrub: true,
+            scrub: 0.5, // Leichte Glättung
           }
         });
         
-        tl.fromTo(text, 
+        tl.fromTo(target, 
           { opacity: 0.1, y: 50 },
           { opacity: 1, y: 0, ease: "none", duration: 1 }
         )
-        .to(text, 
+        .to(target, 
           { opacity: 0.1, y: -50, ease: "none", duration: 1 },
           "+=1.5"
         );
