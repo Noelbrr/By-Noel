@@ -29,6 +29,19 @@ export default function App() {
     scrollRef.current = locomotiveScroll;
 
     const ctx = gsap.context(() => {
+      // Hero Parallax effect
+      gsap.to(".hero-section", {
+        scrollTrigger: {
+          trigger: ".hero-section",
+          start: "top top",
+          end: "bottom top",
+          scrub: true,
+        },
+        y: -300,
+        opacity: 0,
+        ease: "none",
+      });
+
       gsap.from(".hero-content > *", {
         y: 100,
         opacity: 0,
@@ -100,7 +113,7 @@ export default function App() {
       >
         Contact me
       </button>
-      <section className="min-h-screen flex flex-col items-center justify-center px-6 text-center relative overflow-hidden">
+      <section className="hero-section min-h-screen flex flex-col items-center justify-center px-6 text-center relative overflow-hidden">
         <div className="hero-content flex flex-col items-center gap-8 mb-24">
           <Logo />
           <h1 className="text-5xl md:text-8xl font-bold tracking-tighter leading-none max-w-4xl text-balance">
