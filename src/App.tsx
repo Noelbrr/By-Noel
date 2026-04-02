@@ -75,28 +75,11 @@ export default function App() {
         ease: "none",
       });
 
-      // Initial Page Load Animation: Fly in from bottom
-      gsap.from(".floating-contact", {
-        y: 150,
-        opacity: 0,
-        duration: 1.5,
-        delay: 0.8,
-        ease: "power4.out",
-      });
-
-      // Disappear/Re-appear animation when reaching contact section
-      gsap.to(".floating-contact", {
-        scrollTrigger: {
-          trigger: "#contact-section",
-          start: "top 80%",
-          toggleActions: "play none none reverse",
-        },
-        y: 150,
-        opacity: 0,
-        pointerEvents: "none",
-        duration: 0.5,
-        ease: "power3.inOut",
-      });
+      // Button fliegt beim Laden von unten rein
+      gsap.fromTo(".floating-contact", 
+        { y: 150, opacity: 0 },
+        { y: 0, opacity: 1, duration: 1.2, delay: 0.5, ease: "back.out(1.5)" }
+      );
     }, containerRef);
 
     return () => {
