@@ -80,6 +80,20 @@ export default function App() {
         { y: 50, opacity: 0 },
         { y: 0, opacity: 1, duration: 0.8, ease: "power2.out" }
       );
+
+      // Beim Contact-Bereich am Ende soll er aber verschwinden
+      gsap.to(".floating-contact", {
+        scrollTrigger: {
+          trigger: "#contact-section",
+          start: "top 85%",
+          toggleActions: "play none none reverse",
+        },
+        y: 50,
+        opacity: 0,
+        pointerEvents: "none",
+        duration: 0.4,
+        ease: "power2.inOut",
+      });
     }, containerRef);
 
     return () => {
