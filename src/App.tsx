@@ -186,7 +186,7 @@ export default function App() {
           </div>
           <div className="order-1 md:order-2 relative aspect-[4/5] overflow-hidden rounded-2xl bg-zinc-900">
             <img 
-              src="https://picsum.photos/seed/ungoverned/1200/1500" 
+              src="https://raw.githubusercontent.com/Noelbrr/By-Noel/main/ungoverned_screenshot_website_shopify_design_by_noel.png" 
               alt="Ungoverned Project" 
               className="work-image absolute inset-0 w-full h-[120%] object-cover opacity-80"
               referrerPolicy="no-referrer"
