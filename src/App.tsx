@@ -78,7 +78,7 @@ export default function App() {
       // Button fliegt beim Laden von unten rein
       gsap.fromTo(".floating-contact", 
         { y: 150, opacity: 0 },
-        { y: 0, opacity: 1, duration: 1.2, delay: 0.5, ease: "back.out(1.5)" }
+        { y: 0, opacity: 1, duration: 1.2, delay: 0.1, ease: "back.out(1.5)" }
       );
     }, containerRef);
 
