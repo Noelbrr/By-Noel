@@ -42,12 +42,25 @@ export default function App() {
         ease: "none",
       });
 
-      gsap.from(".hero-content > *", {
+      gsap.from(".hero-content > *, .scroll-explore", {
         y: 100,
         opacity: 0,
         duration: 1.5,
         stagger: 0.2,
         ease: "power4.out",
+      });
+
+      // Beim runterscrollen das "Scroll to explore" ausblenden
+      gsap.to(".scroll-fade-wrapper", {
+        scrollTrigger: {
+          trigger: ".hero-section",
+          start: "top -50px", // Triggert leichtes Runterscrollen
+          toggleActions: "play none none reverse",
+        },
+        opacity: 0,
+        pointerEvents: "none",
+        duration: 0.4,
+        ease: "power2.inOut",
       });
 
       gsap.utils.toArray(".reveal-text").forEach((text: any) => {
@@ -122,8 +135,10 @@ export default function App() {
             Based in Germany. Building minimalist, intentional digital experiences for the world.
           </p>
         </div>
-        <div className="absolute bottom-8 md:bottom-12 animate-bounce text-[#86868b]">
-          <span className="text-sm uppercase tracking-widest">Scroll to explore</span>
+        <div className="scroll-fade-wrapper absolute bottom-8 md:bottom-12">
+          <div className="scroll-explore animate-bounce text-[#86868b]">
+            <span className="text-sm uppercase tracking-widest">Scroll to explore</span>
+          </div>
         </div>
       </section>
 
