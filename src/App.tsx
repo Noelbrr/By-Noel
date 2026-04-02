@@ -85,16 +85,7 @@ export default function App() {
         );
       });
 
-      gsap.to(".work-image", {
-        scrollTrigger: {
-          trigger: ".work-section",
-          start: "top bottom",
-          end: "bottom top",
-          scrub: true,
-        },
-        y: -100,
-        ease: "none",
-      });
+
 
       // Beim Contact-Bereich am Ende soll er verschwinden (nur opacity)
       gsap.to(".floating-contact", {
@@ -172,16 +163,16 @@ export default function App() {
       </section>
 
       <section className="work-section min-h-screen flex flex-col items-center justify-center px-6 py-24 bg-black overflow-hidden">
-        <div className="max-w-7xl w-full grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-32 items-center">
-          <div className="order-2 md:order-1">
+        <div className="max-w-4xl w-full flex flex-col items-center text-center">
+          <div>
             <span className="text-[#86868b] uppercase tracking-widest text-sm font-bold mb-4 block">FEATURED PROJECT</span>
             <h3 className="text-5xl md:text-8xl font-bold mb-6 tracking-tighter">Ungoverned</h3>
-            <p className="text-xl md:text-2xl text-[#86868b] mb-8 leading-relaxed">
+            <p className="text-xl md:text-2xl text-[#86868b] mb-8 leading-relaxed max-w-2xl mx-auto">
               A custom Shopify theme built for an Australian electric tracked vehicle brand. 
               Engineered for speed, built for impact.
             </p>
             <div className="h-[1px] w-full bg-white/10 mb-8" />
-            <div className="flex gap-8 text-sm uppercase tracking-widest font-bold">
+            <div className="flex justify-center gap-12 text-sm uppercase tracking-widest font-bold">
               <div>
                 <p className="text-[#86868b] mb-1">ROLE</p>
                 <p>FRONT-END DEVELOPER</p>
@@ -191,14 +182,6 @@ export default function App() {
                 <a href="https://ungoverned.com.au" target="_blank" rel="noopener noreferrer" className="hover:text-[#86868b] transition-colors underline decoration-white/30 underline-offset-4">ungoverned.com.au</a>
               </div>
             </div>
-          </div>
-          <div className="order-1 md:order-2 relative aspect-[4/5] overflow-hidden rounded-2xl bg-zinc-900">
-            <img 
-              src="https://raw.githubusercontent.com/Noelbrr/By-Noel/main/ungoverned_screenshot_website_shopify_design_by_noel.png" 
-              alt="Ungoverned Project" 
-              className="work-image absolute inset-0 w-full h-[120%] object-cover opacity-80"
-              referrerPolicy="no-referrer"
-            />
           </div>
         </div>
       </section>
