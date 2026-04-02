@@ -75,13 +75,7 @@ export default function App() {
         ease: "none",
       });
 
-      // Ganz simples und sauberes Einblenden von unten
-      gsap.fromTo(".floating-contact", 
-        { y: 50, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.8, ease: "power2.out" }
-      );
-
-      // Beim Contact-Bereich am Ende soll er aber verschwinden
+      // Beim Contact-Bereich am Ende soll er verschwinden
       gsap.to(".floating-contact", {
         scrollTrigger: {
           trigger: "#contact-section",
@@ -116,7 +110,7 @@ export default function App() {
     <div ref={containerRef} className="bg-black">
       <button
         onClick={scrollToContact}
-        className="floating-contact fixed bottom-8 left-0 right-0 mx-auto w-max md:left-auto md:right-8 md:mx-0 z-50 bg-white text-black px-8 py-4 rounded-full font-bold text-sm uppercase tracking-widest shadow-2xl hover:scale-105 transition-transform duration-300 active:scale-95"
+        className="animate-fly-in floating-contact fixed bottom-8 left-0 right-0 mx-auto w-max md:left-auto md:right-8 md:mx-0 z-50 bg-white text-black px-8 py-4 rounded-full font-bold text-sm uppercase tracking-widest shadow-2xl hover:scale-105 transition-transform duration-300 active:scale-95"
       >
         Contact me
       </button>
