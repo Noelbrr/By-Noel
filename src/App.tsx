@@ -87,7 +87,7 @@ export default function App() {
 
 
 
-      // Beim Contact-Bereich am Ende soll er verschwinden (nur opacity)
+      // Beim Contact-Bereich am Ende soll er weich nach unten fliegen und ausblenden
       gsap.to(".floating-contact", {
         scrollTrigger: {
           trigger: "#contact-section",
@@ -95,6 +95,7 @@ export default function App() {
           toggleActions: "play none none reverse",
         },
         opacity: 0,
+        y: 150,
         pointerEvents: "none",
         duration: 0.6,
         ease: "power2.inOut",
