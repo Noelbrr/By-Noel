@@ -43,7 +43,12 @@ export default function App() {
       });
 
       gsap.from(".hero-content > *, .scroll-explore", {
-        y: 100,
+        y: (i, el) => {
+          if (el.tagName.toLowerCase() === 'img' && window.matchMedia("(min-width: 768px)").matches) {
+            return -100;
+          }
+          return 100;
+        },
         opacity: 0,
         duration: 1.5,
         stagger: 0.2,
