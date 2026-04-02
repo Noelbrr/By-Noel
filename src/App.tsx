@@ -88,7 +88,7 @@ export default function App() {
 
 
       // Beim Contact-Bereich am Ende soll er weich nach unten fliegen und ausblenden
-      gsap.to(".floating-contact", {
+      gsap.to(".floating-contact-wrapper", {
         scrollTrigger: {
           trigger: "#contact-section",
           start: "top 80%",
@@ -119,12 +119,14 @@ export default function App() {
 
   return (
     <div ref={containerRef} className="bg-black">
-      <button
-        onClick={scrollToContact}
-        className="animate-fly-in floating-contact fixed bottom-8 left-0 right-0 mx-auto w-max md:left-auto md:right-8 md:mx-0 z-50 bg-white text-black px-8 py-4 rounded-full font-bold text-sm uppercase tracking-widest shadow-2xl cursor-pointer"
-      >
-        Contact me
-      </button>
+      <div className="floating-contact-wrapper fixed bottom-8 left-0 right-0 mx-auto w-max md:left-auto md:right-8 md:mx-0 z-50">
+        <button
+          onClick={scrollToContact}
+          className="animate-fly-in bg-white text-black px-8 py-4 rounded-full font-bold text-sm uppercase tracking-widest shadow-2xl cursor-pointer hover:bg-gray-200 transition-colors"
+        >
+          Contact me
+        </button>
+      </div>
       <section className="hero-section min-h-screen flex flex-col items-center justify-center px-6 text-center relative overflow-hidden">
         <div className="hero-content flex flex-col items-center gap-8 mb-24">
           <Logo />
