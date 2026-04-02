@@ -29,7 +29,6 @@ export default function App() {
     scrollRef.current = locomotiveScroll;
 
     const ctx = gsap.context(() => {
-      // Hero Parallax effect
       gsap.to(".hero-section", {
         scrollTrigger: {
           trigger: ".hero-section",
@@ -55,7 +54,6 @@ export default function App() {
         ease: "power4.out",
       });
 
-      // Extra Delay für Scroll to explore
       gsap.from(".scroll-explore", {
         y: 100,
         opacity: 0,
@@ -64,7 +62,6 @@ export default function App() {
         ease: "power4.out",
       });
 
-      // Beim runterscrollen das "Scroll to explore" ausblenden
       gsap.to(".scroll-fade-wrapper", {
         scrollTrigger: {
           trigger: ".hero-section",
@@ -87,12 +84,10 @@ export default function App() {
           }
         });
         
-        // 1. Phase: Einblenden von unten
         tl.fromTo(text, 
           { opacity: 0.1, y: 50 },
           { opacity: 1, y: 0, ease: "none", duration: 1 }
         )
-        // 2. Phase: Ausblenden nach oben (mit Verzögerung, damit es mittig lesbar bleibt)
         .to(text, 
           { opacity: 0.1, y: -50, ease: "none", duration: 1 },
           "+=1.5"
@@ -101,7 +96,6 @@ export default function App() {
 
 
 
-      // Beim Contact-Bereich am Ende soll er weich nach unten fliegen und ausblenden
       gsap.to(".floating-contact-wrapper", {
         scrollTrigger: {
           trigger: "#contact-section",
