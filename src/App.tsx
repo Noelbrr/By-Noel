@@ -64,17 +64,25 @@ export default function App() {
       });
 
       gsap.utils.toArray(".reveal-text").forEach((text: any) => {
-        gsap.from(text, {
+        const tl = gsap.timeline({
           scrollTrigger: {
             trigger: text,
             start: "top 80%",
-            end: "top 20%",
+            end: "bottom 20%",
             scrub: true,
-          },
-          opacity: 0.1,
-          y: 50,
-          duration: 1,
+          }
         });
+        
+        // 1. Phase: Einblenden von unten
+        tl.fromTo(text, 
+          { opacity: 0.1, y: 50 },
+          { opacity: 1, y: 0, ease: "none", duration: 1 }
+        )
+        // 2. Phase: Ausblenden nach oben (mit Verzögerung, damit es mittig lesbar bleibt)
+        .to(text, 
+          { opacity: 0.1, y: -50, ease: "none", duration: 1 },
+          "+=1.5"
+        );
       });
 
       gsap.to(".work-image", {
