@@ -75,7 +75,7 @@ export default function App() {
         ease: "none",
       });
 
-      // Beim Contact-Bereich am Ende soll er verschwinden
+      // Beim Contact-Bereich am Ende soll er verschwinden (nur opacity)
       gsap.to(".floating-contact", {
         scrollTrigger: {
           trigger: "#contact-section",
@@ -83,11 +83,9 @@ export default function App() {
           toggleActions: "play none none reverse",
         },
         opacity: 0,
-        x: 50,
-        scale: 0.8,
         pointerEvents: "none",
         duration: 0.6,
-        ease: "power3.inOut",
+        ease: "power2.inOut",
       });
     }, containerRef);
 
