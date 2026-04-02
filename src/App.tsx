@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import LocomotiveScroll from "locomotive-scroll";
@@ -128,22 +128,6 @@ export default function App() {
     }
   };
 
-  const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const formData = new FormData(e.currentTarget);
-    const name = formData.get("name") || "";
-    const email = formData.get("email") || "";
-    const url = formData.get("url") || "";
-    const message = formData.get("message") || "";
-
-    const subject = encodeURIComponent(`Neue Projektanfrage von ${name}`);
-    const body = encodeURIComponent(
-      `Name: ${name}\nEmail: ${email}\nWebsite: ${url}\n\nNachricht:\n${message}`
-    );
-    
-    window.location.href = `mailto:Noelbrr17@gmail.com?subject=${subject}&body=${body}`;
-  };
-
   return (
     <div ref={containerRef} className="bg-black">
       <div className="floating-contact-wrapper fixed bottom-8 left-0 right-0 mx-auto w-max md:left-auto md:right-8 md:mx-0 z-50">
@@ -223,14 +207,12 @@ export default function App() {
       >
         <div className="max-w-3xl w-full">
           <h2 className="text-5xl md:text-8xl font-bold mb-12 tracking-tighter text-center">Let's build.</h2>
-          <form className="space-y-8" onSubmit={handleFormSubmit}>
+          <form className="space-y-8" onSubmit={(e) => e.preventDefault()}>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div className="space-y-2">
                 <label className="text-xs uppercase tracking-widest text-[#86868b] font-bold ml-1">Name</label>
                 <input
                   type="text"
-                  name="name"
-                  required
                   placeholder="Noel Breuer"
                   className="w-full bg-transparent border-b border-white/20 py-4 focus:outline-none focus:border-white transition-colors text-xl"
                 />
@@ -239,8 +221,6 @@ export default function App() {
                 <label className="text-xs uppercase tracking-widest text-[#86868b] font-bold ml-1">Email</label>
                 <input
                   type="email"
-                  name="email"
-                  required
                   placeholder="hello@bynoel.de"
                   className="w-full bg-transparent border-b border-white/20 py-4 focus:outline-none focus:border-white transition-colors text-xl"
                 />
@@ -250,7 +230,6 @@ export default function App() {
               <label className="text-xs uppercase tracking-widest text-[#86868b] font-bold ml-1">Current Website</label>
               <input
                 type="url"
-                name="url"
                 placeholder="Paste Link here"
                 className="w-full bg-transparent border-b border-white/20 py-4 focus:outline-none focus:border-white transition-colors text-xl"
               />
@@ -258,14 +237,12 @@ export default function App() {
             <div className="space-y-2">
               <label className="text-xs uppercase tracking-widest text-[#86868b] font-bold ml-1">Message</label>
               <textarea
-                name="message"
-                required
                 rows={4}
                 placeholder="Tell me about your project..."
                 className="w-full bg-transparent border-b border-white/20 py-4 focus:outline-none focus:border-white transition-colors text-xl resize-none"
               />
             </div>
-            <button type="submit" className="w-full bg-white text-black font-bold py-6 rounded-full text-xl hover:bg-[#86868b] hover:text-white transition-all duration-500 mt-8">
+            <button className="w-full bg-white text-black font-bold py-6 rounded-full text-xl hover:bg-[#86868b] hover:text-white transition-all duration-500 mt-8">
               Send Inquiry
             </button>
           </form>
