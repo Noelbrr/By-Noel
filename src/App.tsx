@@ -75,10 +75,10 @@ export default function App() {
         ease: "none",
       });
 
-      // Button fliegt beim Laden von unten rein
+      // Ganz simples und sauberes Einblenden von unten
       gsap.fromTo(".floating-contact", 
-        { y: 150, opacity: 0 },
-        { y: 0, opacity: 1, duration: 1.2, delay: 0.1, ease: "back.out(1.5)" }
+        { y: 50, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.8, ease: "power2.out" }
       );
     }, containerRef);
 
