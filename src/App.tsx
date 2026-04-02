@@ -163,16 +163,16 @@ export default function App() {
       </section>
 
       <section className="work-section min-h-screen flex flex-col items-center justify-center px-6 py-24 bg-black overflow-hidden">
-        <div className="max-w-4xl w-full flex flex-col items-center text-center">
-          <div>
+        <div className="max-w-4xl w-full flex flex-col items-start md:items-center text-left md:text-center">
+          <div className="w-full">
             <span className="text-[#86868b] uppercase tracking-widest text-sm font-bold mb-4 block">FEATURED PROJECT</span>
             <h3 className="text-5xl md:text-8xl font-bold mb-6 tracking-tighter">Ungoverned</h3>
-            <p className="text-xl md:text-2xl text-[#86868b] mb-8 leading-relaxed max-w-2xl mx-auto">
+            <p className="text-xl md:text-2xl text-[#86868b] mb-8 leading-relaxed max-w-2xl md:mx-auto">
               A custom Shopify theme built for an Australian electric tracked vehicle brand. 
               Engineered for speed, built for impact.
             </p>
             <div className="h-[1px] w-full bg-white/10 mb-8" />
-            <div className="flex justify-center gap-12 text-sm uppercase tracking-widest font-bold">
+            <div className="flex justify-start md:justify-center gap-12 text-sm uppercase tracking-widest font-bold">
               <div>
                 <p className="text-[#86868b] mb-1">ROLE</p>
                 <p>FRONT-END DEVELOPER</p>
