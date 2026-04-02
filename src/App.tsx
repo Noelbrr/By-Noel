@@ -13,7 +13,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const Logo = () => (
   <img 
-    src="https://raw.githubusercontent.com/Noelbrr/By-Noel/main/by-noel-logo.png" 
+    src="https://raw.githubusercontent.com/Noelbrr/By-Noel/main/by-noel-logo-inverted.png" 
     alt="By Noel Logo" 
     className="w-24 h-24 md:w-32 md:h-32 object-contain" 
   />
