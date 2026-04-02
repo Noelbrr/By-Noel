@@ -85,14 +85,15 @@ export default function App() {
       gsap.to(".floating-contact", {
         scrollTrigger: {
           trigger: "#contact-section",
-          start: "top 85%",
+          start: "top 80%",
           toggleActions: "play none none reverse",
         },
-        y: 50,
         opacity: 0,
+        x: 50,
+        scale: 0.8,
         pointerEvents: "none",
-        duration: 0.4,
-        ease: "power2.inOut",
+        duration: 0.6,
+        ease: "power3.inOut",
       });
     }, containerRef);
 
