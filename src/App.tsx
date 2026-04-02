@@ -42,7 +42,7 @@ export default function App() {
         ease: "none",
       });
 
-      gsap.from(".hero-content > *, .scroll-explore", {
+      gsap.from(".hero-content > *", {
         y: (i, el) => {
           if (el.tagName.toLowerCase() === 'img' && window.matchMedia("(min-width: 768px)").matches) {
             return -100;
@@ -52,6 +52,15 @@ export default function App() {
         opacity: 0,
         duration: 1.5,
         stagger: 0.2,
+        ease: "power4.out",
+      });
+
+      // Extra Delay für Scroll to explore
+      gsap.from(".scroll-explore", {
+        y: 100,
+        opacity: 0,
+        duration: 1.5,
+        delay: 1.2,
         ease: "power4.out",
       });
 
