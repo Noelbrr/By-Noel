@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import LocomotiveScroll from "locomotive-scroll";
@@ -12,10 +12,10 @@ function cn(...inputs: ClassValue[]) {
 gsap.registerPlugin(ScrollTrigger);
 
 const Logo = () => (
-  <img 
-    src="https://raw.githubusercontent.com/Noelbrr/By-Noel/main/by-noel-logo-inverted.png" 
-    alt="By Noel Logo" 
-    className="w-24 h-24 md:w-32 md:h-32 object-contain" 
+  <img
+    src="https://raw.githubusercontent.com/Noelbrr/By-Noel/main/by-noel-logo-inverted.png"
+    alt="By Noel Logo"
+    className="w-24 h-24 md:w-32 md:h-32 object-contain"
   />
 );
 
@@ -76,7 +76,7 @@ export default function App() {
 
       gsap.utils.toArray(".reveal-text").forEach((text: any) => {
         const target = text.firstElementChild; // Das animiert den Text selbst, nicht den äußeren Container
-        
+
         const tl = gsap.timeline({
           scrollTrigger: {
             trigger: text, // Der äußere Container bleibt starr und dient nur als Trigger
@@ -85,15 +85,15 @@ export default function App() {
             scrub: 0.5, // Leichte Glättung
           }
         });
-        
-        tl.fromTo(target, 
+
+        tl.fromTo(target,
           { opacity: 0.1, y: 50 },
           { opacity: 1, y: 0, ease: "none", duration: 1 }
         )
-        .to(target, 
-          { opacity: 0.1, y: -50, ease: "none", duration: 1 },
-          "+=1.5"
-        );
+          .to(target,
+            { opacity: 0.1, y: -50, ease: "none", duration: 1 },
+            "+=1.5"
+          );
       });
 
 
@@ -126,6 +126,22 @@ export default function App() {
         easing: (t) => t === 1 ? 1 : 1 - Math.pow(2, -10 * t),
       });
     }
+  };
+
+  const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+    const name = formData.get("name") || "";
+    const email = formData.get("email") || "";
+    const url = formData.get("url") || "";
+    const message = formData.get("message") || "";
+
+    const subject = encodeURIComponent(`Neue Projektanfrage von ${name}`);
+    const body = encodeURIComponent(
+      `Name: ${name}\nEmail: ${email}\nWebsite: ${url}\n\nNachricht:\n${message}`
+    );
+    
+    window.location.href = `mailto:Noelbrr17@gmail.com?subject=${subject}&body=${body}`;
   };
 
   return (
@@ -182,7 +198,7 @@ export default function App() {
             <span className="text-[#86868b] uppercase tracking-widest text-sm font-bold mb-4 block">FEATURED PROJECT</span>
             <h3 className="text-5xl md:text-8xl font-bold mb-6 tracking-tighter">Ungoverned</h3>
             <p className="text-xl md:text-2xl text-[#86868b] mb-8 leading-relaxed max-w-2xl md:mx-auto">
-              A custom Shopify theme built for an Australian electric tracked vehicle brand. 
+              A custom Shopify theme built for an Australian electric tracked vehicle brand.
               Engineered for speed, built for impact.
             </p>
             <div className="h-[1px] w-full bg-white/10 mb-8" />
@@ -200,54 +216,61 @@ export default function App() {
         </div>
       </section>
 
-      <section 
-        id="contact-section" 
+      <section
+        id="contact-section"
         ref={contactRef}
         className="min-h-screen flex flex-col items-center justify-center px-6 py-24 bg-black"
       >
         <div className="max-w-3xl w-full">
           <h2 className="text-5xl md:text-8xl font-bold mb-12 tracking-tighter text-center">Let's build.</h2>
-          <form className="space-y-8" onSubmit={(e) => e.preventDefault()}>
+          <form className="space-y-8" onSubmit={handleFormSubmit}>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div className="space-y-2">
                 <label className="text-xs uppercase tracking-widest text-[#86868b] font-bold ml-1">Name</label>
-                <input 
-                  type="text" 
-                  placeholder="Noel Breuer" 
+                <input
+                  type="text"
+                  name="name"
+                  required
+                  placeholder="Noel Breuer"
                   className="w-full bg-transparent border-b border-white/20 py-4 focus:outline-none focus:border-white transition-colors text-xl"
                 />
               </div>
               <div className="space-y-2">
                 <label className="text-xs uppercase tracking-widest text-[#86868b] font-bold ml-1">Email</label>
-                <input 
-                  type="email" 
-                  placeholder="hello@bynoel.de" 
+                <input
+                  type="email"
+                  name="email"
+                  required
+                  placeholder="hello@bynoel.de"
                   className="w-full bg-transparent border-b border-white/20 py-4 focus:outline-none focus:border-white transition-colors text-xl"
                 />
               </div>
             </div>
             <div className="space-y-2">
               <label className="text-xs uppercase tracking-widest text-[#86868b] font-bold ml-1">Current Website</label>
-              <input 
-                type="url" 
-                placeholder="Paste Link here" 
+              <input
+                type="url"
+                name="url"
+                placeholder="Paste Link here"
                 className="w-full bg-transparent border-b border-white/20 py-4 focus:outline-none focus:border-white transition-colors text-xl"
               />
             </div>
             <div className="space-y-2">
               <label className="text-xs uppercase tracking-widest text-[#86868b] font-bold ml-1">Message</label>
-              <textarea 
-                rows={4} 
-                placeholder="Tell me about your project..." 
+              <textarea
+                name="message"
+                required
+                rows={4}
+                placeholder="Tell me about your project..."
                 className="w-full bg-transparent border-b border-white/20 py-4 focus:outline-none focus:border-white transition-colors text-xl resize-none"
               />
             </div>
-            <button className="w-full bg-white text-black font-bold py-6 rounded-full text-xl hover:bg-[#86868b] hover:text-white transition-all duration-500 mt-8">
+            <button type="submit" className="w-full bg-white text-black font-bold py-6 rounded-full text-xl hover:bg-[#86868b] hover:text-white transition-all duration-500 mt-8">
               Send Inquiry
             </button>
           </form>
         </div>
-        
+
         <div className="mt-24 text-[#86868b] text-sm uppercase tracking-[0.2em] font-medium opacity-50">
           © {new Date().getFullYear()} By Noel — All Rights Reserved
         </div>
