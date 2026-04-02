@@ -96,7 +96,7 @@ export default function App() {
     <div ref={containerRef} className="bg-black">
       <button
         onClick={scrollToContact}
-        className="floating-contact fixed bottom-8 right-8 z-50 bg-white text-black px-8 py-4 rounded-full font-bold text-sm uppercase tracking-widest shadow-2xl hover:scale-105 transition-transform duration-300 active:scale-95"
+        className="floating-contact fixed bottom-8 left-0 right-0 mx-auto w-max md:left-auto md:right-8 md:mx-0 z-50 bg-white text-black px-8 py-4 rounded-full font-bold text-sm uppercase tracking-widest shadow-2xl hover:scale-105 transition-transform duration-300 active:scale-95"
       >
         Contact me
       </button>
