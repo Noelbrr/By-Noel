@@ -112,6 +112,7 @@ export default function App() {
     if (contactRef.current) {
       scrollRef.current?.scrollTo(contactRef.current, {
         duration: 1.5,
+        offset: 40,
         easing: (t) => t === 1 ? 1 : 1 - Math.pow(2, -10 * t),
       });
     }
