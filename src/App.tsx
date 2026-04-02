@@ -166,7 +166,7 @@ export default function App() {
       <section className="work-section min-h-screen flex flex-col items-center justify-center px-6 py-24 bg-black overflow-hidden">
         <div className="max-w-7xl w-full grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-32 items-center">
           <div className="order-2 md:order-1">
-            <span className="text-[#86868b] uppercase tracking-widest text-sm font-bold mb-4 block">Featured Case Study</span>
+            <span className="text-[#86868b] uppercase tracking-widest text-sm font-bold mb-4 block">FEATURED PROJECT</span>
             <h3 className="text-5xl md:text-8xl font-bold mb-6 tracking-tighter">Ungoverned</h3>
             <p className="text-xl md:text-2xl text-[#86868b] mb-8 leading-relaxed">
               A custom Shopify theme built for an Australian electric tracked vehicle brand. 
@@ -175,12 +175,12 @@ export default function App() {
             <div className="h-[1px] w-full bg-white/10 mb-8" />
             <div className="flex gap-8 text-sm uppercase tracking-widest font-bold">
               <div>
-                <p className="text-[#86868b] mb-1">Role</p>
-                <p>Lead Developer</p>
+                <p className="text-[#86868b] mb-1">ROLE</p>
+                <p>FRONT-END DEVELOPER</p>
               </div>
               <div>
-                <p className="text-[#86868b] mb-1">Tech</p>
-                <p>Shopify Liquid / GSAP</p>
+                <p className="text-[#86868b] mb-1">LINK</p>
+                <a href="https://ungoverned.com.au" target="_blank" rel="noopener noreferrer" className="hover:text-[#86868b] transition-colors underline decoration-white/30 underline-offset-4">ungoverned.com.au</a>
               </div>
             </div>
           </div>
